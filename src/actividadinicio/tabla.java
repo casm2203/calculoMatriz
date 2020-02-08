@@ -220,7 +220,6 @@ public class tabla extends javax.swing.JFrame {
         calculo m1 = new calculo();
         calculo m2 = new calculo();
         calculo m3 = new calculo();
-
         m1.matriz = m1.obtenerDataTable(tblMatriz);
         m2.matriz = m2.obtenerDataTable(table2);
         m3.matriz = m1.sumaMatriz(m1.matriz, m2.matriz);

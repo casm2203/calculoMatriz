@@ -276,7 +276,7 @@ public class tabla extends javax.swing.JFrame {
             matriz.matriz3 = matriz.sumaMatriz(matriz.matriz1, matriz.matriz2);
             matriz.mostrarMatriz(tblMatrizResultado, matriz.matriz3);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar los datos en las matrices para poder utilizar esta función");
         }
     }//GEN-LAST:event_sumarMatrizActionPerformed
 
@@ -291,7 +291,7 @@ public class tabla extends javax.swing.JFrame {
             txtDiagInv.setText(Integer.toString(sumDI));
             txtDiagMayor.setText(calcMayor.diagonalMayor(sumDP, sumDI));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar los datos en las matrices para poder utilizar esta función");
         }
 
     }//GEN-LAST:event_calcularMayorActionPerformed
@@ -302,7 +302,7 @@ public class tabla extends javax.swing.JFrame {
             mLlenaM1.matriz2 = mLlenaM1.llenarMatriz(mLlenaM1.matriz1);
             mLlenaM1.mostrarMatriz(tblMatriz1, mLlenaM1.matriz2);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos en la matriz para poder utilizar esta función");
         }
     }//GEN-LAST:event_btnM1ActionPerformed
 
@@ -312,7 +312,7 @@ public class tabla extends javax.swing.JFrame {
             mLlenaM2.matriz2 = mLlenaM2.llenarMatriz(mLlenaM2.matriz1);
             mLlenaM2.mostrarMatriz(tblMatriz2, mLlenaM2.matriz2);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos en la matriz para poder utilizar esta función");
         }
     }//GEN-LAST:event_btnM2ActionPerformed
 

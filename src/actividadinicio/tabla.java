@@ -5,6 +5,8 @@
  */
 package actividadinicio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SAGICC
@@ -16,7 +18,6 @@ public class tabla extends javax.swing.JFrame {
      */
     public tabla() {
         initComponents();
-
     }
 
     /**
@@ -33,21 +34,25 @@ public class tabla extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblMatriz = new javax.swing.JTable();
+        tblMatriz1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        table2 = new javax.swing.JTable();
+        tblMatriz2 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        table3 = new javax.swing.JTable();
+        tblMatrizResultado = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         sumarMatriz = new javax.swing.JButton();
-        txtMayor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         calcularMayor = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btnM1 = new javax.swing.JButton();
         btnM2 = new javax.swing.JButton();
+        txtDiagPrin = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtDiagInv = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtDiagMayor = new javax.swing.JLabel();
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,7 +72,7 @@ public class tabla extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora de matriz");
 
-        tblMatriz.setModel(new javax.swing.table.DefaultTableModel(
+        tblMatriz1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -76,22 +81,38 @@ public class tabla extends javax.swing.JFrame {
             new String [] {
                 "A", "B", "C"
             }
-        ));
-        jScrollPane1.setViewportView(tblMatriz);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
 
-        table2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "A", "B", "C"
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
-        ));
-        jScrollPane2.setViewportView(table2);
+        });
+        jScrollPane1.setViewportView(tblMatriz1);
 
-        table3.setModel(new javax.swing.table.DefaultTableModel(
+        tblMatriz2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "A", "B", "C"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblMatriz2);
+
+        tblMatrizResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -101,7 +122,7 @@ public class tabla extends javax.swing.JFrame {
                 "A", "B", "C"
             }
         ));
-        jScrollPane4.setViewportView(table3);
+        jScrollPane4.setViewportView(tblMatrizResultado);
 
         jLabel1.setText("Matriz1");
 
@@ -116,7 +137,7 @@ public class tabla extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("La Diagonal mayor es: ");
+        jLabel4.setText("La suma de la diagonal principal de la matriz 1 es: ");
 
         calcularMayor.setText("Calcular mayor");
         calcularMayor.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +163,17 @@ public class tabla extends javax.swing.JFrame {
             }
         });
 
+        txtDiagPrin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+
+        jLabel6.setText("La suma de la diagonal inversa de la matriz 2 es: ");
+
+        txtDiagInv.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+
+        jLabel7.setText("La diagonal mayor es: ");
+
+        txtDiagMayor.setBackground(new java.awt.Color(204, 204, 204));
+        txtDiagMayor.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,8 +183,18 @@ public class tabla extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDiagInv, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -164,25 +206,28 @@ public class tabla extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnM2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtMayor, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(calcularMayor))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDiagPrin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sumarMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(calcularMayor))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDiagMayor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,55 +250,70 @@ public class tabla extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(sumarMatriz))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMayor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(calcularMayor))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(sumarMatriz)
+                    .addComponent(txtDiagPrin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDiagInv, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDiagMayor, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(calcularMayor)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void sumarMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumarMatrizActionPerformed
-        calculo m1 = new calculo();
-        calculo m2 = new calculo();
-        calculo m3 = new calculo();
-        m1.matriz = m1.obtenerDataTable(tblMatriz);
-        m2.matriz = m2.obtenerDataTable(table2);
-        m3.matriz = m1.sumaMatriz(m1.matriz, m2.matriz);
-        m3.mostrarMatriz(table3, m3.matriz);
-
+        try {
+            calculo matriz = new calculo();
+            matriz.matriz1 = matriz.obtenerDataTable(tblMatriz1);
+            matriz.matriz2 = matriz.obtenerDataTable(tblMatriz2);
+            matriz.matriz3 = matriz.sumaMatriz(matriz.matriz1, matriz.matriz2);
+            matriz.mostrarMatriz(tblMatrizResultado, matriz.matriz3);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+        }
     }//GEN-LAST:event_sumarMatrizActionPerformed
 
     private void calcularMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularMayorActionPerformed
-        int sumDP = 0, sumDI = 0;
-        String respuestaMayor;
-        calculo mResultado = new calculo();
-        calculo mResultado2 = new calculo();
-        mResultado.matriz = mResultado.obtenerDataTable(table3); //obtenemos los datos de la tabla resultado
-        mResultado.diagonalPrincipal(mResultado.matriz); // pasamos la matriz y sacamos la diagonal principal
-        mResultado2.diagonalInversa(mResultado.matriz); // pasamos la matriz y sacamos la diagonal Inversa en un objeto diferente
-        sumDP = mResultado.sumaDiagonal(mResultado.diagonalPrincipal(mResultado.matriz));
-        sumDI = mResultado2.sumaDiagonal(mResultado.diagonalInversa(mResultado.matriz));
-        respuestaMayor = mResultado.diagonalMayor(sumDP, sumDI);
-        txtMayor.setText(respuestaMayor);
+        try {
+            calculo calcMayor = new calculo();
+            calcMayor.matriz1 = calcMayor.obtenerDataTable(tblMatriz1);  //obtenemos los datos de la tabla 1
+            calcMayor.matriz2 = calcMayor.obtenerDataTable(tblMatriz2); //obtenemos los datos de la tabla 2
+            int sumDP = calcMayor.diagonalPrincipal(calcMayor.matriz1);
+            int sumDI = calcMayor.diagonalInversa(calcMayor.matriz2);
+            txtDiagPrin.setText(Integer.toString(sumDP));
+            txtDiagInv.setText(Integer.toString(sumDI));
+            txtDiagMayor.setText(calcMayor.diagonalMayor(sumDP, sumDI));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+        }
 
     }//GEN-LAST:event_calcularMayorActionPerformed
 
     private void btnM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnM1ActionPerformed
-        calculo mllena1 = new calculo();
-        int matriz1[][] = new int[3][3];
-        mllena1.matriz = mllena1.llenarMatriz(matriz1);
-        mllena1.mostrarMatriz(tblMatriz, mllena1.matriz);
+        try {
+            calculo mLlenaM1 = new calculo();
+            mLlenaM1.matriz2 = mLlenaM1.llenarMatriz(mLlenaM1.matriz1);
+            mLlenaM1.mostrarMatriz(tblMatriz1, mLlenaM1.matriz2);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+        }
     }//GEN-LAST:event_btnM1ActionPerformed
 
     private void btnM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnM2ActionPerformed
-        calculo mllena2 = new calculo();
-        int matriz2[][] = new int[3][3];
-        mllena2.matriz = mllena2.llenarMatriz(matriz2);
-        mllena2.mostrarMatriz(table2, mllena2.matriz);
+        try {
+            calculo mLlenaM2 = new calculo();
+            mLlenaM2.matriz2 = mLlenaM2.llenarMatriz(mLlenaM2.matriz1);
+            mLlenaM2.mostrarMatriz(tblMatriz2, mLlenaM2.matriz2);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar datos para utilizar esta función");
+        }
     }//GEN-LAST:event_btnM2ActionPerformed
 
     /**
@@ -301,6 +361,8 @@ public class tabla extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -308,9 +370,11 @@ public class tabla extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable3;
     private javax.swing.JButton sumarMatriz;
-    private javax.swing.JTable table2;
-    private javax.swing.JTable table3;
-    private javax.swing.JTable tblMatriz;
-    private javax.swing.JTextField txtMayor;
+    private javax.swing.JTable tblMatriz1;
+    private javax.swing.JTable tblMatriz2;
+    private javax.swing.JTable tblMatrizResultado;
+    private javax.swing.JLabel txtDiagInv;
+    private javax.swing.JLabel txtDiagMayor;
+    private javax.swing.JLabel txtDiagPrin;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,8 +15,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class calculo {
 
-    int matriz[][] = new int[3][3];
-    int sumM;
+    int matriz1[][] = new int[3][3];
+    int matriz2[][] = new int[3][3];
+    int matriz3[][] = new int[3][3];
 
     public int[][] sumaMatriz(int[][] matriz1, int[][] matriz2) {
         int suma[][] = new int[3][3];
@@ -28,38 +29,30 @@ public class calculo {
         return suma;
     }
 
-    public int[] diagonalPrincipal(int matriz[][]) {
-        int diagoPrincipal[] = new int[3];
+    public int diagonalPrincipal(int matriz[][]) {
+        int sumDiagPr =0;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (i == j) {
-                    diagoPrincipal[i] = matriz[i][j];
+                    sumDiagPr += matriz[i][j];
                 }
             }
         }
-        return diagoPrincipal;
+        return sumDiagPr;
     }
-
-    public int[] diagonalInversa(int matriz[][]) {
-        int diagoSecundaria[] = new int[3];
+    
+    public int diagonalInversa(int matriz[][]) {
+        int sumDiagIn = 0;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (i + j == matriz.length - 1) {
-                    diagoSecundaria[i] = matriz[i][j];
+                    sumDiagIn  += matriz[i][j];
                 }
             }
         }
-        return diagoSecundaria;
+        return sumDiagIn;
     }
-
-    public int sumaDiagonal(int vector[]) {
-        int sumDiag = 0;
-        for (int i = 0; i < vector.length; i++) {
-            sumDiag = +vector[i];
-        }
-        return sumDiag;
-    }
-
+    
     public String diagonalMayor(int diagoPrin, int diagoSecun) {
         String respuesta;
         if (diagoPrin > diagoSecun) {
@@ -95,7 +88,6 @@ public class calculo {
     }
 
     public int[][] llenarMatriz(int matriz[][]) {
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 try {
@@ -106,7 +98,6 @@ public class calculo {
                 }
             }
         }
-
         return matriz;
     }
 
